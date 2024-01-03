@@ -37,3 +37,20 @@ def reverseVowels(self, s):
     for i, x in enumerate(ind):
         new_str.insert(x, vowel_rev[i])
     return "".join(new_str)
+
+# Second Solution - time O(N), space O(N)
+# using stack
+def reverseVowels(self, s):
+    """
+    :type s: str
+    :rtype: str
+    """ 
+    stack = []
+    s = list(s)
+    for c in s:
+        if c in "aeiouAEIOU":
+            stack.append(c)
+    for i in range(len(s)):
+        if s[i] in "aeiouAEIOU":
+            s[i] = stack.pop()
+    return "".join(s)
