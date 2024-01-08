@@ -24,3 +24,8 @@ Constraints:
 The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 '''
 
+'''
+O(n) Memory - This question can be done using O(n) memory if both postfix and prefix array are maintained.
+O(1) Memory - This question can be done using O(1) memory if prefix and postfix are done on the same array using forward and backward pass. 
+'''
+
