@@ -29,3 +29,21 @@ O(n) Memory - This question can be done using O(n) memory if both postfix and pr
 O(1) Memory - This question can be done using O(1) memory if prefix and postfix are done on the same array using forward and backward pass. 
 '''
 
+def productExceptSelf(nums):
+    """
+    :type nums: List[int]
+    :rtype: List[int]
+    """
+    out = [1] * len(nums)
+    prefix = 1
+    for i in range(len(nums)):
+        out[i] = prefix
+        prefix = prefix * nums[i]
+    postfix = 1
+    for i in range(len(out)-1, -1, -1):
+        out[i] = postfix * out[i]
+        postfix = postfix * nums[i]
+
+    return out
+
+print(productExceptSelf([1,2,3,4]))
