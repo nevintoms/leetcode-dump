@@ -30,7 +30,7 @@ Constraints:
 
  
 '''
-
+# Solution 1:
 def increasingTriplet(nums):
         """
         :type nums: List[int]
@@ -45,6 +45,25 @@ def increasingTriplet(nums):
             if x < j and x>i:
                 j = x
             if x < k and x>i and x>j:
+                return True
+        return False
+
+print(increasingTriplet([2,1,5,0,4,6]))
+
+
+# Best Solution:
+def increasingTriplet(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        first = second = float('inf') 
+        for n in nums: 
+            if n <= first: 
+                first = n
+            elif n <= second:
+                second = n
+            else:
                 return True
         return False
 
