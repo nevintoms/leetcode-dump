@@ -64,5 +64,29 @@ def compress(self, chars):
     return ans
 
 
+# Solution 2
+def compress(self, chars):
+    """
+    :type chars: List[str]
+    :rtype: int
+    """
+    if len(chars) == 1:
+        return 1
+    count = 1
+    res = chars[0]
+    for i in range(len(chars)-1):
+        if chars[i] == chars[i+1]:
+            count += 1
+        else:
+            if count > 1:
+                res += str(count)
+            res += chars[i+1]
+            count = 1
+    if count > 1:
+        res += str(count)
+    chars[:] = list(res)
+    return len(res)
+
+
 
 
