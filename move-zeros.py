@@ -45,3 +45,20 @@ def moveZeroes(self, nums):
     return nums
 
 
+# Solution 2: Moving zeros to the end
+def moveZeroes(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: None Do not return anything, modify nums in-place instead.
+    """
+    length = len(nums)
+    i=0
+    while(i<length):
+        if nums[i]!=0:
+            i+=1
+        else:
+            nums.pop(i)
+            nums.append(0)
+            length-=1
+        
+    return nums
