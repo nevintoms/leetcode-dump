@@ -45,3 +45,20 @@ def isSubsequence(self, s, t):
     if s_p == len(s):
         return True
     return False
+
+# Solution 2(best):
+def isSubsequence(self, s, t):
+    """
+    :type s: str
+    :type t: str
+    :rtype: bool
+    """
+    if len(s) == 0: return True
+    l, r = 0,0
+    while l<len(s) and r<len(t) :
+        if s[l] == t[r]:
+            l+=1
+            r+=1
+        else:
+            r+=1
+    return l == len(s) 
