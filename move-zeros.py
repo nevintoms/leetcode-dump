@@ -60,5 +60,18 @@ def moveZeroes(self, nums):
             nums.pop(i)
             nums.append(0)
             length-=1
-        
     return nums
+
+
+# Solution 3(best): Moving non-zeros to the begining
+def moveZeroes(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: None Do not return anything, modify nums in-place instead.
+    """
+    l=0
+    for r in range(len(nums)):
+        if nums[r]:
+            nums[l], nums[r] = nums[r], nums[l]
+            l+=1
+    return nums 
