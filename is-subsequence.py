@@ -23,3 +23,25 @@ Constraints:
     0 <= t.length <= 104
     s and t consist only of lowercase English letters.
 '''
+
+# Solution 1:
+def isSubsequence(self, s, t):
+    """
+    :type s: str
+    :type t: str
+    :rtype: bool
+    """
+    
+    if len(s) == 0:
+        return True
+
+    s_p = 0
+    for t_p in range(len(t)):
+        if t[t_p] == s[s_p]:
+            s_p+=1
+            if s_p == len(s):
+                break
+
+    if s_p == len(s):
+        return True
+    return False
