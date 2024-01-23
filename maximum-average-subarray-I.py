@@ -16,3 +16,20 @@ Example 2:
 Input: nums = [5], k = 1
 Output: 5.00000
 '''
+
+# Solution 1:
+def findMaxAverage(self, nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: float
+    """
+    op = sum(nums[:k])
+    top=op
+    for i in range(1, len(nums)-k+1):
+        temp=0
+        op = op - nums[i-1] + nums[i+k-1]
+        if op > top:
+            top = op
+    return float(top)/k
+
