@@ -33,3 +33,18 @@ def findMaxAverage(self, nums, k):
             top = op
     return float(top)/k
 
+# Solution 2(best):
+def findMaxAverage(self, nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: float
+    """
+    win = sum(nums[:k])
+    maxSum = win
+    for i in range(len(nums)-k):
+        win = win - nums[i] + nums[i+k]
+        if win>maxSum:
+            maxSum = win
+    return maxSum/float(k)
+
