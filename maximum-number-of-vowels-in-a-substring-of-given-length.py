@@ -50,3 +50,26 @@ def maxVowels(self, s, k):
         #         cnt = temp_cnt
         # return cnt
 
+# Solution 2:(best solution)
+def maxVowels(self, s, k):
+    """
+    :type s: str
+    :type k: int
+    :rtype: int
+    """
+    vowel = 'aeiou'
+    win = s[:k]
+    cnt=0
+    for x in win:
+        if x in vowel:
+            cnt+=1
+    max_cnt = cnt
+
+    for i in range(len(s)-k):
+        if s[i] in 'aeiou':
+            cnt-=1
+        if s[i+k] in 'aeiou':
+            cnt+=1
+        if cnt>max_cnt:
+            max_cnt = cnt
+    return max_cnt 
