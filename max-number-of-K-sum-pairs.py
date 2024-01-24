@@ -32,3 +32,25 @@ Constraints:
     1 <= nums[i] <= 109
     1 <= k <= 109
 '''
+
+# Solution:
+def maxOperations(self, nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: int
+    """
+    nums_sorted = sorted(nums)
+    cnt=0
+    l=0
+    r=len(nums)-1
+    while(l<r):
+        if nums_sorted[l] + nums_sorted[r] == k:
+            l+=1
+            r-=1
+            cnt+=1
+        elif nums_sorted[l] + nums_sorted[r] > k:
+            r-=1
+        else:
+            l+=1
+    return cnt
