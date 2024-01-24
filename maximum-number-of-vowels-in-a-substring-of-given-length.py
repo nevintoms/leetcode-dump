@@ -31,3 +31,22 @@ Constraints:
     s consists of lowercase English letters.
     1 <= k <= s.length
 '''
+
+# Solution 1: this solution won't work, it will hit a time limit error buecause it needs further optimization.
+def maxVowels(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: int
+        """
+        # vowels = set('aeiou')
+        # cnt=0
+        # for i in range(len(s)-k+1):
+        #     win = s[i:i+k]
+        #     temp_cnt = 0
+        #     for x in vowels.intersection(set(win)):
+        #         temp_cnt+=win.count(x)
+        #     if temp_cnt > cnt:
+        #         cnt = temp_cnt
+        # return cnt
+
