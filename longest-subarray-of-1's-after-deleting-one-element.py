@@ -59,3 +59,23 @@ def longestSubarray(self, nums):
             cnt+=1
     max_cnt = max(max_cnt, cnt)
     return max_cnt
+
+# Solution 2(best):
+def longestSubarray(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    a, b, max_sum, total = 0, 0, 0, sum(nums)
+
+    if total == len(nums): return len(nums) - 1
+    if total == 0: return 0
+
+    for num in nums:
+        if num == 1: b += 1
+        else:
+            max_sum = max([max_sum, (a+b)])
+            a = b
+            b = 0
+
+    return max([max_sum, (a+b)])
