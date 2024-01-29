@@ -30,3 +30,32 @@ Constraints:
     1 <= nums.length <= 105
     nums[i] is either 0 or 1.
 '''
+
+# Solution 1:
+def longestSubarray(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    if list(set(nums))[0] == 1:
+        return len(nums)-1
+    
+    l = r = cnt = max_cnt = 0
+    k = 1
+    while(r < len(nums)):
+        if nums[r] == 0:
+            if k==0:
+                max_cnt = max(max_cnt, cnt)
+                if nums[l] == 0:
+                    k+=1
+                else:
+                    cnt-=1
+                l+=1
+            else:
+                k-=1
+                r+=1
+        else:
+            r+=1
+            cnt+=1
+    max_cnt = max(max_cnt, cnt)
+    return max_cnt
