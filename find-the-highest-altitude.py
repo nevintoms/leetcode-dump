@@ -36,7 +36,7 @@ def largestAltitude(self, gain):
     gain.insert(0,0)
     for i in range(1, len(gain)):
         gain[i] = gain[i-1] + gain[i]
-    return max([0, max(gain)])
+    return max(gain)
 
 # Solution 2:
 def largestAltitude(self, gain):
