@@ -41,3 +41,18 @@ Constraints:
     1 <= nums.length <= 104
     -1000 <= nums[i] <= 1000
 '''
+
+# Solution 1:
+def pivotIndex(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    left = 0
+    for i in range(len(nums)):
+        if sum(nums[:i]) == sum(nums[i+1:]):
+            return i
+    return -1
+
+
+
