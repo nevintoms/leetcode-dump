@@ -31,3 +31,12 @@ Constraints:
     1 <= nums1.length, nums2.length <= 1000
     -1000 <= nums1[i], nums2[i] <= 1000
 '''
+
+# Solution:
+def findDifference(self, nums1, nums2):
+    """
+    :type nums1: List[int]
+    :type nums2: List[int]
+    :rtype: List[List[int]]
+    """
+    return [list(set(nums1) - set(nums2)), list(set(nums2) - set(nums1))]
