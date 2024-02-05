@@ -42,3 +42,17 @@ Constraints:
     1 <= word1.length, word2.length <= 105
     word1 and word2 contain only lowercase English letters.
 '''
+
+# Solution 1:
+def closeStrings(self, word1, word2):
+    """
+    :type word1: str
+    :type word2: str
+    :rtype: bool
+    """
+    from collections import Counter
+    if ((len(word1) == len(word2)) and (set(word1) == set(word2))):
+        if sorted(list(Counter(word1).values())) == sorted(list(Counter(word2).values())):
+            return True
+    return False
+
