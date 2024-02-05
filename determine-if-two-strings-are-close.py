@@ -56,3 +56,24 @@ def closeStrings(self, word1, word2):
             return True
     return False
 
+# Solution 2:(works faster than solution 1)
+def closeStrings(self, word1, word2):
+    """
+    :type word1: str
+    :type word2: str
+    :rtype: bool
+    """
+    if len(word1)!=len(word2): return False
+    f1=[]
+    f2=[]
+    sw=set(word1)
+    for i in sw:
+        f1.append(word1.count(i))
+        l=word2.count(i)
+        if l==0: return False
+        f2.append(l)
+    f1.sort()
+    f2.sort()
+    for i in range(len(f1)):
+        if f1[i]!=f2[i]: return False
+    return True
