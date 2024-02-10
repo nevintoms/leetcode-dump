@@ -30,3 +30,25 @@ Constraints:
     1 <= grid[i][j] <= 105
 '''
 
+# Solution 1:
+def equalPairs(self, grid):
+    """
+    :type grid: List[List[int]]
+    :rtype: int
+    """
+    from collections import defaultdict
+
+    n = len(grid)
+    hashMap = defaultdict(int)
+    
+    for row in grid:
+        rowStr = str(row)
+        hashMap[rowStr] += 1
+    
+    count = 0
+    for j in range(n):
+        col = [grid[i][j] for i in range(n)]
+        colStr = str(col)
+        count += hashMap[colStr]
+    
+    return count
