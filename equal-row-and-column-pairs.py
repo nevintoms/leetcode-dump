@@ -52,3 +52,16 @@ def equalPairs(self, grid):
         count += hashMap[colStr]
     
     return count
+
+# Solution 2(best):
+def equalPairs(self, grid):
+    """
+    :type grid: List[List[int]]
+    :rtype: int
+    """
+    from collections import defaultdict
+    d = defaultdict(int)
+    for row in grid:
+        d[tuple(row)] += 1
+    
+    return sum(d[tuple(col)] for col in zip(*grid))
