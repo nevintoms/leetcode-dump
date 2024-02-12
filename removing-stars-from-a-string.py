@@ -39,3 +39,17 @@ Constraints:
     s consists of lowercase English letters and stars *.
     The operation above can be performed on s.
 '''
+
+# Solution
+def removeStars(self, s):
+    """
+    :type s: str
+    :rtype: str
+    """
+    stack = []
+    for x in s:
+        if x!='*':
+            stack.append(x)
+        else:
+            stack.pop()
+    return "".join(stack)
